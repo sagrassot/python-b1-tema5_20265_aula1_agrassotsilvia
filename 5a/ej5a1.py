@@ -58,12 +58,27 @@ Exemple:
 
 # Corret and overwrite class Student here 
 class Student:
-    def __init__(self):
+    #Creem la classe
+    def __init__(self, name, age, average):
+        self.name = name
+        self.age = age
+        self.average = average
+        self._grade = [average]
+    
+    #Mètode descriu - torna una cadena amb la informació bàsica de l'estudiant
+    def describe(self):
+        return f"Name: {self.name}, Age: {self.age}, Average: {self.average}"
+    
+    #Mètode grade - actualitza la mitjana
+    def grade(self, new_grade):
+        self._grade.append(new_grade)
+        self.average = sum(self._grade) / len(self._grade)
+
         pass
        
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# student1 = Student("Pedro", 49, 8.5)
-# student1.grade(9.2)
-# print(student1.describe())
+student1 = Student("Pedro", 49, 8.5)
+student1.grade(9.2)
+print(student1.describe())
